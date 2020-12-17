@@ -1,0 +1,23 @@
+import React from 'react';
+import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
+
+import GlobalStyle from './styles/globals';
+import Home from './pages/Home';
+import Exams from './pages/Exams';
+import Professor from './pages/Professor';
+import Subject from './pages/Subject';
+
+export default function App() {
+    return (
+        <Router>
+            <GlobalStyle />
+            <Switch>                    
+                <Route path="/" exact component={Home} />
+                <Route path="/exams" component={Exams} />
+                <Route path="/subject/:id" component={Subject} />
+                <Route path="/professor/:id" component={Professor} />
+                <Route path="/subject/:id" component={Subject} />
+            </Switch>
+        </Router>
+    );
+}
