@@ -6,6 +6,7 @@ import Home from './pages/Home';
 import Exams from './pages/Exams';
 import Professor from './pages/Professor';
 import Subject from './pages/Subject';
+import NewExam from './pages/NewExam';
 
 export default function App() {
     return (
@@ -16,7 +17,7 @@ export default function App() {
                 <Route path="/exams" component={Exams} />
                 <Route path="/subject/:id" component={Subject} />
                 <Route path="/professor/:id" component={Professor} />
-                <Route path="/subject/:id" component={Subject} />
+                <Route path="/add-exam" component={NewExam} />
             </Switch>
         </Router>
     );

@@ -8,8 +8,7 @@ import ListPreview from '../components/ListPreview';
 export default function Professor() {
     const { id } = useParams();
     const [professor, setProfessor] = useState(null);
-    console.log(id)
-    console.log(professor)
+   
     useEffect(() => {
         axios.get(`http://localhost:3000/api/v1/professor/${id}`)
             .then(r => {

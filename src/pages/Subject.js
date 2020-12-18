@@ -8,7 +8,6 @@ import ListPreview from '../components/ListPreview';
 export default function Subject() {
     const { id } = useParams();
     const [subject, setSubject] = useState(null);
-    console.log(id)
 
     useEffect(() => {
         axios.get(`http://localhost:3000/api/v1/subject/${id}`)

@@ -4,7 +4,7 @@ import styled from 'styled-components';
 
 export default function ListPreview({ element, index, option }) {
     const history = useHistory();
-
+    console.log(element)
     function defineRoute() {
         option === 'subjects' 
             ? history.push(`/subject/${element.id}`)

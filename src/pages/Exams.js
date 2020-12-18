@@ -15,7 +15,6 @@ const options = [
 export default function Tests() {
     const [filter, setFilter] = useState('all');
 
-   
     return(
         <Container>
             <header>

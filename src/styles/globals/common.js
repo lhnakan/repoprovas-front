@@ -24,4 +24,7 @@ export default css`
         font-family: 'Poppins', sans-serif;
         background: black;
     }
+    input {
+        font-family: 'Poppins', sans-serif;
+    }
 `;
