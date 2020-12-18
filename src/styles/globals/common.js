@@ -8,6 +8,7 @@ export default css`
 
         color: #FFF;
         font-family: 'Poppins', sans-serif;
+        letter-spacing: 1px;
     }
 
     h1 {

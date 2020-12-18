@@ -19,7 +19,7 @@ export default function Tests() {
     return(
         <Container>
             <Filter>
-                <h2>Selecione como deseja filtrar:</h2>
+                <h2>Selecione como deseja filtrar :</h2>
                 <Select 
                     options={options} 
                     onChange={e => setFilter(e.value)}

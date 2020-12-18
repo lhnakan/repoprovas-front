@@ -19,20 +19,20 @@ export default function NewExam() {
     const history = useHistory();
 
     function attSubjects(id) {
-        setProfessor(id)
+        setProfessor(id);
         
         if(!oneOrOther){
             setOneOrOther(true);
 
             axios.post('http://localhost:3000/api/v1/professorsubjects', { id })
                 .then(r => {
-                    setSubject(r.data)
+                    setSubject(r.data);
                 })
         }
     }
 
     function attProfessors(id) {
-        setSubject(id)
+        setSubject(id);
         
         if(!oneOrOther){
             setOneOrOther(true);
@@ -56,7 +56,7 @@ export default function NewExam() {
             .catch(err => {
                 console.log(err);
                 alert('Erro de conexao com servidor, tente novamente mais tarde.');
-                history.push('/')
+                history.push('/');
             })
     }, [])
 
@@ -65,6 +65,19 @@ export default function NewExam() {
 
         if (loading) return;
         setLoading(true);
+
+        if(
+            !url ||
+            !subject || subject.length > 1 ||
+            !professor || professor.length > 1 ||
+            semester.length > 1 ||
+            years.length > 1 ||
+            type.length > 1
+        ) {
+            alert('Por favor preencha todos os campos.');
+            setLoading(false);
+            return;
+        }
 
         const body = {
             url, 
@@ -76,11 +89,13 @@ export default function NewExam() {
         }
         axios.post('http://localhost:3000/api/v1/new-exam', body)
             .then(() => {
-                alert('Prova enviada com sucesso! Obrigado por contribuir.')
+                alert('Prova enviada com sucesso! Obrigado por contribuir.');
+                history.push('/');
             })
             .catch(err => {
                 console.log(err)
-                alert('Erro ao postar a prova, por favor tente denovo.')
+                alert('Erro ao postar a prova, por favor tente denovo.');
+                setLoading(false);
                 window.location.reload();
             })
     }
