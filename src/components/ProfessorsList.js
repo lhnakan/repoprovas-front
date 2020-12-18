@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
-import styled from 'styled-components';
+
+import { ExamsContainer } from '../styles/ExamsListStyled';
 
 import ListPreview from './ListPreview';
 
@@ -12,24 +13,21 @@ export default function ProfessorsList() {
             .then(r => {
                 setProfessors(r.data)
             })
+            .catch(err => {
+                console.log(err);
+                alert('Erro ao filtrar por professores, por favor tente novamente mais tarde.');
+                window.location.reload();
+            })
     }, [])
     return(
-        <>
-            <TestsContainer>
-                <h1>Professores cadastrados</h1>
-                <ul>
-                    {
-                        professors 
-                            ? (professors.map(p => <ListPreview key={p.id} element={p} option='professors' />))
-                            : <li><img src='/images/loading.svg' /></li>
-                    }
-                </ul>
-            </TestsContainer>
-        </>
+        <ExamsContainer>
+            <h1>Professores cadastrados</h1>
+            <ul>
+                {professors 
+                    ? (professors.map(p => <ListPreview key={p.id} element={p} option='professors' />))
+                    : <li><img src='/images/loading.svg' /></li>
+                }
+            </ul>
+        </ExamsContainer>
     );
 }
-
-const TestsContainer = styled.main`
-    margin: 20px 10px;
-    text-align: center;
-`;

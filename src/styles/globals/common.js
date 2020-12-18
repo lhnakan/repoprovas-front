@@ -2,9 +2,11 @@ import { css } from 'styled-components';
 
 export default css`
     body{
-        background: #ac744a;
-        color: #FFF;
+        background-image: url('/images/bg.png');
+        background-repeat: no-repeat;
+        background-size: cover;
 
+        color: #FFF;
         font-family: 'Poppins', sans-serif;
     }
 

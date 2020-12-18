@@ -1,21 +1,29 @@
 import React, { useEffect, useState } from 'react';
+import { useHistory } from 'react-router-dom';
 import axios from 'axios';
-import styled from 'styled-components';
+
+import { ExamsContainer } from '../styles/ExamsListStyled';
 
 import ListPreview from './ListPreview';
 
 export default function AllExams() {
     const [examsList, setExamsList] = useState(null);
+    const history = useHistory();
 
     useEffect(() => {
         axios.get('http://localhost:3000/api/v1/exams')
             .then(r => {
                 setExamsList(r.data)
             })
+            .catch(err => {
+                console.log(err);
+                alert('Erro ao carregar as provas, tente novamente mais tarde.');
+                history.push('/')
+            })
     }, [])
     return(
         <>
-            <TestsContainer>
+            <ExamsContainer>
                 <h1>Todos os arquivos disponiveis</h1>
                 <ul>
                     {
@@ -24,12 +32,7 @@ export default function AllExams() {
                             : <li><img src='/images/loading.svg' /></li>
                     }
                 </ul>
-            </TestsContainer>
+            </ExamsContainer>
         </>
     );
 }
-
-const TestsContainer = styled.main`
-    margin: 20px 10px;
-    text-align: center;
-`;

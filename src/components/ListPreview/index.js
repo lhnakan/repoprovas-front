@@ -1,10 +1,11 @@
 import React from 'react';
 import { useHistory } from 'react-router-dom';
-import styled from 'styled-components';
+
+import { Box } from './ListStyled';
 
 export default function ListPreview({ element, index, option }) {
     const history = useHistory();
-    console.log(element)
+    if(option !== 'all') console.log(element)
     function defineRoute() {
         option === 'subjects' 
             ? history.push(`/subject/${element.id}`)
@@ -21,36 +22,21 @@ export default function ListPreview({ element, index, option }) {
     
         return(
             <a  href={element.link} target="_blank" key={`${element.link}${index}`}>
-                <WithoutFilter>
+                <Box option={option}>
                     <p>{element.name}</p>
                     <span>{element.subject}</span>
                     <span>{type}</span>
                     <span>{element.professor}</span>
-                </WithoutFilter>
+                </Box>
             </a>
         );
 
     } else {
         return(
-            <Container onClick={defineRoute}>
+            <Box option={option} onClick={defineRoute}>
                 <p>{element.name}</p>
-            </Container>
+                <p>{element.id}</p>
+            </Box>
         );
     }
 }
-
-const Container = styled.li`
-    display: flex;
-    justify-content: space-between;
-    margin: 20px 10px;
-`;
-
-const WithoutFilter = styled.li`
-    display: flex;
-    justify-content: space-between;
-    margin: 20px 10px;
-    
-    * {
-        width: 25%;
-    }
-`;

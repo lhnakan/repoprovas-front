@@ -1,10 +1,11 @@
 import React, { useState } from 'react';
-import styled from 'styled-components';
 import Select from 'react-select';
 
-import AllExams from '../components/AllExams';
-import ProfessorsList from '../components/ProfessorsList';
-import SubjectsList from '../components/SubjectsList';
+import { Container, Filter } from './ExamsStyled'
+
+import AllExams from '../../components/AllExams';
+import ProfessorsList from '../../components/ProfessorsList';
+import SubjectsList from '../../components/SubjectsList';
 
 const options = [
     { value: 'all', label: 'Todas as provas' },
@@ -17,14 +18,14 @@ export default function Tests() {
 
     return(
         <Container>
-            <header>
+            <Filter>
                 <h2>Selecione como deseja filtrar:</h2>
                 <Select 
                     options={options} 
                     onChange={e => setFilter(e.value)}
                     defaultValue={options[0]}
                 />
-            </header>
+            </Filter>
 
             {filter === 'subjects' 
                 ? <SubjectsList /> 
@@ -33,13 +34,3 @@ export default function Tests() {
         </Container>
     );
 }
-
-
-const Container = styled.div`
-    div {
-        color: black;
-    }
-    header {
-        width: 35%;
-    }
-`;
