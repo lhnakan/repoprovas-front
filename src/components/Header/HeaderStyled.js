@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 
-export const Container = styled.header`
+const Container = styled.header`
     display: flex;
     align-items: center;
     background: #000;
@@ -13,3 +13,5 @@ export const Container = styled.header`
         margin-right: 20px;
     }
 `;
+
+export default Container;

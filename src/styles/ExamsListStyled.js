@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 
-export const ExamsContainer = styled.main`
+const ExamsContainer = styled.main`
     margin: 20px 10px;
     text-align: center;
     width: 100%;
@@ -15,3 +15,5 @@ export const ExamsContainer = styled.main`
         padding: 15px 0px;
     }
 `;
+
+export default ExamsContainer;

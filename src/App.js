@@ -10,17 +10,17 @@ import Subject from './pages/Subject';
 import NewExam from './pages/NewExam';
 
 export default function App() {
-    return (
-        <Router>
-            <GlobalStyle />
-            <Header />
-            <Switch>                    
-                <Route path="/" exact component={Home} />
-                <Route path="/exams" component={Exams} />
-                <Route path="/subject/:id" component={Subject} />
-                <Route path="/professor/:id" component={Professor} />
-                <Route path="/add-exam" component={NewExam} />
-            </Switch>
-        </Router>
-    );
+  return (
+    <Router>
+      <GlobalStyle />
+      <Header />
+      <Switch>                    
+        <Route path="/" exact component={Home} />
+        <Route path="/exams" component={Exams} />
+        <Route path="/subject/:id" component={Subject} />
+        <Route path="/professor/:id" component={Professor} />
+        <Route path="/add-exam" component={NewExam} />
+      </Switch>
+    </Router>
+  );
 }

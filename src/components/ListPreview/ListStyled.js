@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 
-export const Box = styled.li`
+const Container = styled.li`
     display: flex;
     justify-content: ${({ option }) => (option === 'total' ? 'space-between' : 'space-evenly')};
     margin: 25px;  
@@ -10,3 +10,5 @@ export const Box = styled.li`
         width: 25%;
     }
 `;
+
+export default Container;
